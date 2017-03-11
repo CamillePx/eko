@@ -5,10 +5,95 @@ url: /
 
 <div class="grid-container">
   <h1>Track ton eko !</h1>
-    <label for="amount">Entrez le numéro de l'eko que vous souhaitez tracker</label>
-    <input id="amount" name="amount" value=""/> 
-    <p class="hint">Le dernier eko que vous avez utilisé portait le numéro 1957</p>
-    <button>tracker</button>
-    
+    <label for="track--id">Entrez le numéro de l'eko que vous souhaitez tracker</label>
+    <input id="track--id" name="track--id" value="" required/> 
+    <p class="hint">Le dernier eko que vous avez utilisé à Namur portait le numéro 1957</p> 
+    <p class="hint">Le dernier eko que vous avez utilisé à Bruxelles portait le numéro 1024</p> 
+    <p class="hint">Le dernier eko que vous avez utilisé à Mons portait le numéro 3380</p>
+    <button class="track">tracker</button>
+     <div id="map"></div>
+
     <a ui-sref="inc-profile">retour</a>
 </div>
+<script>
+  window.initMap = function(ville){
+      var dataNamur=[{lat:50.4661336,lng:4.8733966},{lat:50.4701992,lng:4.8637885},{lat:50.4513653,lng:4.8433255},{lat:50.4681907,lng:4.8695487},{lat:50.4661336,lng:4.8733966},{lat:50.4694408,lng:4.8542096},{lat:50.4713522,lng:4.8541482},{lat:50.4585556,lng:4.8360021},{lat:50.4638808,lng:4.8678634},{lat:50.4592892,lng:4.8422717},{lat:50.4666817,lng:4.8662353},{lat:50.4885806,lng:5.1001141},{lat:50.4792458,lng:4.8767499},{lat:50.4751904,lng:4.8646012},{lat:50.4666817,lng:4.8662353},{lat:50.4634834,lng:4.8681899},{lat:50.4701623,lng:4.8634441},{lat:50.4799508,lng:4.7713892},{lat:50.4622497,lng:4.8669385},{lat:50.4616665,lng:4.8377495},{lat:50.4509368,lng:4.8705903},{lat:50.4750542,lng:4.8665357},{lat:50.4682152,lng:4.8815938},{lat:50.4527763,lng:4.8630829},{lat:50.4652399,lng:4.8741172},{lat:50.4760028,lng:4.8473646},{lat:50.4666817,lng:4.8662353},{lat:50.4666817,lng:4.8662353},{lat:50.4683806,lng:4.8753289},{lat:50.4419817,lng:4.8652213},{lat:50.4619947,lng:4.8652122},{lat:50.4600611,lng:4.8664292},{lat:50.4622134,lng:4.8622901},{lat:50.4637567,lng:4.8670848},{lat:50.4721864,lng:4.8871607},{lat:50.4650462,lng:4.8367136},{lat:50.4665222,lng:4.8449957},{lat:50.4489652,lng:4.8901508},{lat:50.4202601,lng:4.9320131},{lat:50.4648714,lng:4.8607306},{lat:50.4662763,lng:4.8425065},{lat:50.4657822,lng:4.8688261},{lat:50.4714429,lng:4.8668072},{lat:50.4616038,lng:4.8412036},{lat:50.4651183,lng:4.8541022},{lat:50.4807614,lng:4.8358344},{lat:50.4648919,lng:4.8499971},{lat:50.4785028,lng:4.8445333},{lat:50.4747029,lng:4.8736313},{lat:50.4711265,lng:4.8639013},{lat:50.4711158,lng:4.8615238},{lat:50.4555889,lng:4.8742527},{lat:50.4556646,lng:4.8738207},{lat:50.4637979,lng:4.8717177},{lat:50.4710196,lng:4.8661468},{lat:50.4664649,lng:4.8657337},{lat:50.4664649,lng:4.8657337},{lat:50.4712411,lng:4.8611632},{lat:50.4666817,lng:4.8662353},{lat:50.4666817,lng:4.8662353},{lat:50.4616665,lng:4.8377495},{lat:50.4633333,lng:4.8609874},{lat:50.4667167,lng:4.8625638},{lat:50.4648714,lng:4.8607306},{lat:50.4666817,lng:4.8662353},{lat:50.4558366,lng:4.8411814},{lat:50.4509368,lng:4.8705903},{lat:50.4622497,lng:4.8669385},{lat:50.4666817,lng:4.8662353},{lat:50.4669335,lng:4.8596863},{lat:50.4725359,lng:4.8452616}];var dataMons=[{"lat":50.46446722,"lng":3.92640575},{"lat":50.4548466,"lng":3.96858274},{"lat":50.43515249,"lng":3.98539713},{"lat":50.44148986,"lng":3.92962803},{"lat":50.44099745,"lng":3.98267098},{"lat":50.44265813,"lng":3.92808697},{"lat":50.44006848,"lng":3.95156156},{"lat":50.44402971,"lng":3.92455476},{"lat":50.45349897,"lng":3.98748603},{"lat":50.45978408,"lng":3.95199075},{"lat":50.44346405,"lng":3.96114967},{"lat":50.44285416,"lng":3.93492263},{"lat":50.44698265,"lng":3.97281898},{"lat":50.44669117,"lng":3.95942061},{"lat":50.43231477,"lng":3.94038681},{"lat":50.46443675,"lng":3.95790306},{"lat":50.46935847,"lng":3.92453562},{"lat":50.44724564,"lng":3.98961327},{"lat":50.44945959,"lng":3.98631838},{"lat":50.464021,"lng":3.9400303},{"lat":50.43332151,"lng":3.9532829},{"lat":50.43867332,"lng":3.94966455},{"lat":50.46775921,"lng":3.97052499},{"lat":50.44679811,"lng":3.94998385},{"lat":50.43699734,"lng":3.9260825},{"lat":50.44208528,"lng":3.97063749},{"lat":50.44616668,"lng":3.94216506},{"lat":50.44375919,"lng":3.96115674},{"lat":50.45772443,"lng":3.9632998},{"lat":50.46226061,"lng":3.93188802},{"lat":50.4480639,"lng":3.94669576},{"lat":50.42795512,"lng":3.95224604},{"lat":50.43148388,"lng":3.93664442},{"lat":50.44104793,"lng":3.95360243},{"lat":50.4331321,"lng":3.93822876},{"lat":50.44174465,"lng":3.97951261},{"lat":50.47478587,"lng":3.94518972},{"lat":50.43602325,"lng":3.96345978},{"lat":50.44890897,"lng":3.95824598},{"lat":50.45832064,"lng":3.94653858},{"lat":50.46864184,"lng":3.97040491},{"lat":50.45042295,"lng":3.93366689},{"lat":50.44825671,"lng":3.99189616},{"lat":50.46158643,"lng":3.93040791},{"lat":50.45565491,"lng":3.98483875},{"lat":50.46206973,"lng":3.96589259},{"lat":50.43992994,"lng":3.93619118},{"lat":50.43876928,"lng":3.96501829},{"lat":50.43590232,"lng":3.93310323},{"lat":50.46800123,"lng":3.98184786},{"lat":50.46719559,"lng":3.95024922},{"lat":50.44007619,"lng":3.98065812},{"lat":50.43141138,"lng":3.96033523},{"lat":50.44378653,"lng":3.94694532},{"lat":50.44692688,"lng":3.93361227},{"lat":50.42799529,"lng":3.96501571},{"lat":50.47194806,"lng":3.93628005}];var dataBxl=[{"lat":50.65621169,"lng":4.39750992},{"lat":50.68141682,"lng":4.58882435},{"lat":50.96643231,"lng":4.05288488},{"lat":50.84213967,"lng":4.36044405},{"lat":50.773235,"lng":4.25905335},{"lat":50.88777513,"lng":4.00450028},{"lat":50.90068601,"lng":4.50799672},{"lat":50.84867391,"lng":4.54777876},{"lat":50.93516097,"lng":4.53669892},{"lat":50.85526507,"lng":3.98285182},{"lat":50.81645569,"lng":4.53611866},{"lat":50.86536711,"lng":4.42947996},{"lat":50.81227002,"lng":4.5132075},{"lat":50.92346591,"lng":4.26152878},{"lat":50.72712348,"lng":4.36992343},{"lat":50.85035864,"lng":4.72493729},{"lat":50.69738892,"lng":4.58267981},{"lat":51.0482783,"lng":4.45922051},{"lat":51.02292053,"lng":4.15454773},{"lat":50.83566715,"lng":4.03152091},{"lat":50.98035806,"lng":4.57310758},{"lat":50.89104396,"lng":4.09174208},{"lat":50.78650914,"lng":4.13668243},{"lat":50.68616283,"lng":4.44837732},{"lat":50.84808698,"lng":4.60599324},{"lat":50.97310697,"lng":4.35418892},{"lat":50.84429415,"lng":4.25923181},{"lat":50.84868177,"lng":4.57936333},{"lat":51.04230291,"lng":4.29618027},{"lat":50.95471934,"lng":4.05763259},{"lat":50.93929595,"lng":4.07258313},{"lat":50.76676105,"lng":4.07930842},{"lat":51.07137262,"lng":4.51556722},{"lat":50.95035452,"lng":4.63534718}];
+      
+      switch(ville){
+          case "namur":
+              var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 12,
+                center: {lat: 50.4661336, lng: 4.8733966},
+                mapTypeId: google.maps.MapTypeId.HYBRID,
+                zoomControl: false
+              });
+              var data = dataNamur;
+             document.getElementById('map').style.visibility="visible";
+              break;
+              break;
+          case "bxl":
+              var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 9,
+                center: {lat: 50.8504500, lng: 4.3487800},
+                mapTypeId: google.maps.MapTypeId.HYBRID,
+                zoomControl: false
+              });
+              var data = dataBxl;
+             document.getElementById('map').style.visibility="visible";
+              break;
+              break;
+          case "mons":
+              var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 12,
+                center: {lat: 50.4541300, lng:3.9522900},
+                mapTypeId: google.maps.MapTypeId.HYBRID,
+                zoomControl: false,
+              });
+              var data = dataMons;
+             document.getElementById('map').style.visibility="visible";
+              break;
+          default:
+              var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 12,
+                center: {lat: 50.4541300, lng:3.9522900},
+                mapTypeId: google.maps.MapTypeId.HYBRID,
+                zoomControl: false,
+              });
+              var data = dataMons;
+             document.getElementById('map').style.visibility="hidden";
+              break;
+      }
+    
+        var dataPath = new google.maps.Polyline({
+        path: data,
+        geodesic: true,
+        strokeColor: '#FF0000',
+        strokeOpacity: 1.0,
+        strokeWeight: 2
+      });
+
+      dataPath.setMap(map);
+      
+    var input = document.getElementById("track--id"),
+        trackButton = document.getElementsByClassName("track")[0];
+    
+    trackButton.addEventListener("click", function(){
+        switch (input.value){
+            case "1957":  
+                initMap("namur");
+                break;
+            case "1024":
+                initMap("bxl");
+                break;
+            case "3380":
+                initMap("mons");
+                break;
+            default:
+                initMap("mons");
+                break;
+        }
+    })
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6kv49gUAEE-SJgCGq1mrxzOtdPK60GKs&callback=initMap"></script>

@@ -5881,3 +5881,6 @@ blockquote p {
 
 .float-none {
   float: none; }
+
+#map {
+  height: 300px; }

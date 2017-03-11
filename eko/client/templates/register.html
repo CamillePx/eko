@@ -1,0 +1,31 @@
+---
+name: inc-login
+url: /
+---
+
+<div class="grid-container">
+  <h1>Nouveau Compte</h1>
+    <form action="" method="">
+        <label>Je suis...</label>
+          <label for="particulier"><input type="radio" name="kind" value="particulier" id="particulier">un particulier</label>
+          <label for="professionnel"><input type="radio" name="kind" value="professionnel" id="professionnel"> un professionnel</label>
+        <label for="lname">Nom</label>
+        <input name="lname" id="lname" type="text" placeholder="Doe" value=""/>
+        <label for="fname">Prénom</label>
+        <input name="fname" id="fname" type="text" placeholder="John" value=""/>
+        <label for="login">Login</label>
+        <input name="login" id="login" type="text" placeholder="JohnDoe23" value=""/>
+        <label for="name">Nom de l'entreprise</label>
+        <input name="name" id="name" type="text" placeholder="Entreprise" value=""/>
+        <label for="tva">Numéro de TVA</label>
+        <input name="tva" id="tva" type="text" placeholder="0123456789" value=""/>
+        <label for="password">Mot de Passe</label>
+        <input name="password" id="password" type="password" value=""/>
+        <label for="password2">Confirmer votre mot de passe</label>
+        <input name="password2" id="password2" type="password" value=""/>
+        
+        <a ui-sref="inc-profile">Inscription</a>
+        
+    </form>
+    <a ui-sref="home">J'ai déjà un compte</a>
+</div>
