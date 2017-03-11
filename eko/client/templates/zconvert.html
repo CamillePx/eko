@@ -1,0 +1,25 @@
+---
+name: inc-convert
+url: /
+---
+
+<div class="grid-container">
+  <h1>Convertisseur</h1>
+    <div zf-tabs="">
+        <div zf-tab="" title="Acheter des Ekos">
+            <label for="euro">Somme en €</label>
+            <input type="number" id="euro" name="euro" value="1"/>
+            <p>Résultat en Ekos</p>
+            <p class="eko--result">1.5</p>
+            <button>Acheter</button>
+        </div>
+        <div zf-tab="" title="Vendre des Ekos">
+            <label for="euro">Somme en Ekos</label>
+            <input type="number" id="euro" name="euro" value="2"/>
+            <p>Résultat en €</p>
+            <p class="euro--result">1</p>
+            <button>Vendre</button>
+        </div>
+    </div>
+    <a ui-sref="inc-profile">retour</a>
+</div>

@@ -1,0 +1,22 @@
+{
+  "name": "sass",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "cam",
+  "license": "ISC",
+  "devDependencies": {
+    "bower": "^1.8.0",
+    "gulp": "^3.9.1",
+    "gulp-connect": "^3.2.2",
+    "gulp-sass": "^2.2.0",
+    "node-bourbon": "^4.2.3"
+  },
+  "dependencies": {
+    "foundation-apps": "^1.2.0",
+    "foundation-cli": "^2.1.0"
+  }
+}
